@@ -1,0 +1,34 @@
+{
+  "name": "beyo-www",
+  "version": "0.0.1",
+  "homepage": "https://beyo.github.io",
+  "authors": [
+    "yanickrochon <yanick.rochon@gmail.com>"
+  ],
+  "description": "Beyo Application Framework Website",
+  "main": "index.html",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "beyo",
+    "github",
+    "site",
+    "www"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "requirejs": "~2.1.14",
+    "require-css": "~0.1.5",
+    "font-awesome": "~4.1.0"
+  }
+}

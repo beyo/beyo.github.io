@@ -1,0 +1,25 @@
+{
+  "name": "beyo-www",
+  "version": "0.0.1",
+  "description": "Beyo Application Framework Website",
+  "main": "gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beyo/beyo.github.io.git"
+  },
+  "keywords": [
+    "beyo",
+    "github",
+    "site",
+    "www"
+  ],
+  "author": "Yanick Rochon <yanick.rochon@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/beyo/beyo.github.io/issues"
+  },
+  "homepage": "https://github.com/beyo/beyo.github.io",
+  "dependencies": {
+    "static-server": "^1.0.0"
+  }
+}
