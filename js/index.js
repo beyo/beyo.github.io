@@ -1,7 +1,7 @@
 
 require([
-  'jquery',
-  'css!/css/site.css'
+  'jquery'//,
+  //'css!/css/site.css'
 ], function ($) {
 
   $(function() {

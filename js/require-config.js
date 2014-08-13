@@ -10,9 +10,9 @@
       },
       'bootstrap@3.1.1': {
         deps: [ 
-          'jquery',
-          'css!/css/bootstrap.min.css',
-          'css!/css/font-awesome.min.css'
+          'jquery'//,
+          //'css!/css/bootstrap.min.css',
+          //'css!/css/font-awesome.min.css'
         ],
         exports: '$'        // need to export something.... so... export jQuery!
       }
