@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Beyo Application Framework</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="css/site.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="github">
+        <a href="https://github.com/beyo/beyo">
+            <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+        </a>
+    </div>
+
+
+    <!-- Side Menu -->
+    <a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <div id="sidebar-wrapper">
+        <div class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-danger btn-sm pull-right toggle"><i class="fa fa-times"></i></a>
+            <ul>
+                <li class="sidebar-brand"><a href="#top"><i class="fa fa-home"></i>Beyo</a></li>
+                <li><a href="#about"><i class="fa fa-info"></i>About</a></li>
+                <li><a href="#features"><i class="fa fa-asterisk"></i>Features</a></li>
+                <li><a href="#documentation"><i class="fa fa-book"></i>Documentation</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /Side Menu -->
+
+    <!-- Full Page Image Header Area -->
+    <div id="top" class="header">
+        <div class="vert-text">
+            <h1 class="sharper-glow">Beyo</h1>
+            <h3>
+                <em>Small</em> Application Framework,
+                <em>Great</em> possibilities.</h3>
+            <a href="#documentation" class="btn btn-primary btn-lg">Documentation</a>
+        </div>
+    </div>
+    <!-- /Full Page Image Header Area -->
+
+    <!-- Intro -->
+    <div id="about" class="intro">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-md-offset-1 text-center">
+                    <i class="fa fa-warning"></i>
+                </div>
+                <div class="col-md-6 text-center">
+                    <h2>This project is an active ongoing project. There will be some API changes over time. More documentation, and examples are to be written.</h2>
+                    <p class="lead">Therefore, and despite it working just fine, this is not a production-ready framework. All contributions welcome!</p>
+                </div>
+                <div class="col-md-2 text-center">
+                    <i class="fa fa-warning"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Intro -->
+
+    <!-- Services -->
+    <div id="features" class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <h2>Features</h2>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-md-offset-2 text-center">
+                    <div class="feature-item">
+                        <i class="feature-icon fa fa-rocket"></i>
+                        <h4>Asynchronous</h4>
+                        <p>Using <a href="https://github.com/visionmedia/co">co</a> as it's foundation, make use of generators, thunks, promises, and other asynchronous methods for maximum efficiency.</p>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="feature-item">
+                        <i class="feature-icon fa fa-cubes"></i>
+                        <h4>Modular</h4>
+                        <p>Build extremely modular applications; using application modules, embedded or external plugins, to standard npm modules.</p>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="feature-item">
+                        <i class="feature-icon fa fa-sitemap"></i>
+                        <h4>Structured</h4>
+                        <p>From small to large scale applications, take advantage of a HMVC architecture with multi-level routing without the bootstrap hassle.</p>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="feature-item">
+                        <i class="feature-icon fa fa-gears"></i>
+                        <h4>Customizable</h4>
+                        <p>No obstruction on dependencies or unwanted features; start from a basic MVC REST-enable HTTP server using <a href="http://koajs.com/">koa</a> and create something great!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Services -->
+
+    <!-- Callout -->
+    <div class="callout">
+        <div class="vert-text">
+            <h1><a href="http://opensource.org/licenses/MIT">MIT</a> licensed!</h1>
+        </div>
+    </div>
+    <!-- /Callout -->
+
+    <!-- Portfolio -->
+    <div id="documentation" class="documentation">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <h2>Documentation</h2>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-2 text-center">
+                    <div class="documentation-item">
+                        <a href="#"><i class="doc-icon fa fa-info"></i></a>
+                        <h4>Introduction</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="documentation-item">
+                        <a href="#"><i class="doc-icon fa fa-sitemap"></i></a>
+                        <h4>Project structure</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-2 text-center">
+                    <div class="documentation-item">
+                        <a href="#"><i class="doc-icon fa fa-cubes"></i></a>
+                        <h4>Modules</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="documentation-item">
+                        <a href="#"><i class="doc-icon fa fa-plus"></i></a>
+                        <h4>Plugins</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Portfolio -->
+
+    <!-- Call to Action -->
+    <div class="call-to-action">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <h3>All contributions welcome!</h3>
+                    <a href="#" class="btn btn-lg btn-default">Contribution guid!</a>
+                    <a href="https://github.com/beyo/beyo/issues" class="btn btn-lg btn-primary">Issues</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Call to Action -->
+
+    <!-- Map -->
+    <div id="contact" class="map">
+    </div>
+    <!-- /Map -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <ul class="list-inline">
+                        <li><a href="https://github.com/beyo/beyo" title="Fork me on GitHub"><i class="fa fa-github fa-3x"></i></a></li>
+                    </ul>
+                    <div class="top-scroll">
+                        <a href="#top"><i class="fa fa-arrow-circle-up scroll fa-4x"></i></a>
+                    </div>
+                    <hr>
+                    <p>Copyright &copy; Mind2Soft.com 2014</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /Footer -->
+
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
+    <script>
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    </script>
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    </script>
+    <script>
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    </script>
+
+</body>
+
+</html>
