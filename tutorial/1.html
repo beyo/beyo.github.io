@@ -11,11 +11,14 @@
 
   <link href="../css/bootstrap.min.css" rel="stylesheet">
   <link href="../css/font-awesome.min.css" rel="stylesheet">
-  <link href="../css/site.css" rel="stylesheet">
+  <link href="../css/nav.css" rel="stylesheet">
+  <link href="../css/docs.css" rel="stylesheet">
 
   <script type="text/javascript" src="../js/lib/require.js"></script>
   <script type="text/javascript" src="../js/require-config.js"></script>
-  <script type="text/javascript" src="../js/index.js"></script>
+  <script type="text/javascript" src="../js/nav.js"></script>
+  <script type="text/javascript" src="../js/docs.js"></script>
+
 </head>
 
 <body>
@@ -36,10 +39,172 @@
 
     <div class="row clearfix">
       <div class="col-md-9 column">
-        Coming soon...
+        <h1 class="page-header">New Application Tutorial</h1>
+
+        <!-- GETTING STARTED -->
+        <div class="beyo-docs-section">
+          <h2 id="getting-started">Getting Started</h2>
+
+          <div class="beyo-callout beyo-callout-danger">
+            <h4>In Development</h4>
+            <p>
+              This tutorial targets the <a href="https://github.com/beyo/beyo/tree/dev">dev</a> branch of
+              the framework. This notice will be removed once the refactory and testing phase is done.
+            </p>
+          </div>
+
+          <p>
+            This tutorial is intended to give an introduction to using Beyo by creating a simple
+            application using the Hierarchical-Model-View-Controller paradigm.
+          </p>
+          <p>
+            This tutorial will not focus on persistence, templating, or authentication. But will
+            go in depth into the core of Beyo and the best practices to start a small to large
+            scale application.
+          </p>
+          <p>
+            By the end you will have a working Beyo application and you can then poke around the
+            code to find out more about how it all works and fits together.
+          </p>
+        </div>
+
+        <!-- /GETTING STARTED -->
+
+        <!-- INSTALLATION -->
+        <div class="beyo-docs-section">
+          <h2 id="installation">Installation</h2>
+
+          <div class="beyo-callout beyo-callout-danger">
+            <h4>Some assumptions</h4>
+            <p>
+              It is assumed that you already have installed and configured <a href="http://nodejs.org/" target="_blank">Node.js</a>.
+              Beyo requires and use extensively the most recent ES6 generators and harmony features.
+              Therefore, this tutorial was written and tested using version <code>0.11.3</code>.
+            </p>
+          </div>
+
+
+          <!-- REQUIREMENTS -->
+          <h3 id="requirements">Requirements</h3>
+
+          <div class="beyo-callout beyo-callout-warning">
+            <h4>Development Tools</h4>
+            <p>
+              In this tutorial, we will make use of the terminal and will not enforce any
+              IDE or text editor. For this reason, those using <strong>Win32</strong>
+              operating systems may have to adapt.
+            </p>
+          </div>
+
+          <p>
+            Beyo is built on top of <a href="http://koajs.com/">Koa</a>, which sits on
+            top of <a href="https://github.com/visionmedia/co">co</a>. If these modules
+            have been tested and working, then everything should be just fine. In short
+            the following command should execute just fine.
+          </p>
+
+          <pre><code>$ node --harmony -e 'function*f(){}'</code></pre>
+
+          <!-- /REQUIREMENTS -->
+
+          <!-- GETTING BEYO -->
+          <h3 id="getting-beyo">Getting Beyo Framework</h3>
+
+          <p>
+            Beyo should to be installed globally :
+          </p>
+
+          <pre><code>$ npm install -g beyo</code></pre>
+
+          <p>
+            The installation may be validated by issuing the following command :
+          </p>
+
+          <pre><code>$ beyo --version</code>
+<!--   --><code class="nocode">beyo@0.2.1</code></pre>
+
+          <!-- /GETTING BEYO -->
+
+        </div>
+        <!-- /INSTALLATION -->
+
+        <!-- SKELETON APP -->
+        <div class="beyo-docs-section">
+          <h2 id="skeleton-application">Skeleton Application</h2>
+
+          <!-- APP BOOTSTRAP -->
+          <h3 id="application-bootstrap">Application Bootstrap</h3>
+
+
+          <!-- /APP BOOTSTRAP -->
+
+          <!-- GLOBAL CONFIG -->
+          <h3 id="global-configuration">Global Configuration</h3>
+
+
+          <!-- /GLOBAL CONFIG -->
+
+        </div>
+        <!-- /SKELETON APP -->
+
+        <!-- NEW MODULE -->
+        <div class="beyo-docs-section">
+          <h2 id="new-module">Create a New Module</h2>
+
+
+
+          <!-- MODULE BOOTSTRAP -->
+          <h3 id="new-module-bootstrap">Module Bootstrap</h3>
+
+
+
+          <!-- /MODULE BOOTSTRAP -->
+
+          <!-- MODULE CONFIGURATION -->
+          <h3 id="new-module-configuration">Module Configuration</h3>
+
+
+
+
+          <!-- /MODULE CONFIGURATION -->
+
+          <!-- CONTROLLER -->
+          <h3 id="new-module-controller">Controller</h3>
+
+
+
+          <!-- /CONTROLLER -->
+
+        </div>
+        <!-- /NEW MODULE -->
+
       </div>
       <div class="col-md-3 column">
-
+        <div id="rightCol" class="beyo-docs-sidebar hidden-print hidden-xs hidden-sm" role="complementary">
+          <ul id="sidebar" class="nav nav-stacked">
+            <li class="active"><a href="#getting-started">Getting Started</a></li>
+            <li><a href="#installation">Installation</a>
+              <ul class="nav">
+                <li><a href="#requirements">Requirements</a></li>
+                <li><a href="#getting-beyo">Getting Beyo Framework</a></li>
+              </ul>
+            </li>
+            <li><a href="#skeleton-application">Skeleton Application</a>
+              <ul class="nav">
+                <li><a href="#application-bootstrap">Application Bootstrap</a></li>
+                <li><a href="#global-configuration">Global Configuration</a></li>
+              </ul>
+            </li>
+            <li><a href="#new-module">Create a New Module</a>
+              <ul class="nav">
+                <li><a href="#new-module-bootstrap">Module Bootstrap</a></li>
+                <li><a href="#new-module-configuration">Module Configuration</a></li>
+                <li><a href="#new-module-controller">Controller</a></li>
+              </ul>
+            </li>
+            <li><a href="#whats-next">What's Next?</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

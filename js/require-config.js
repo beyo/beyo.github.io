@@ -13,6 +13,12 @@
           'jquery'
         ],
         exports: '$'        // need to export something.... so... export jQuery!
+      },
+      'prettify@1.0.1': {
+        deps: [
+          'css!/css/prettify/doxy.css'
+        ],
+        exports: 'prettyPrint'
       }
     },
     paths: {

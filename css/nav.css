@@ -1,0 +1,49 @@
+/* Global Styles */
+
+.affix-top, .affix{
+  position: static;
+}
+
+@media (min-width: 979px) {
+
+  #sidebar.affix-top {
+    position: static;
+    margin-top: 20px;
+    width: 228px;
+  }
+
+  #sidebar.affix {
+    position: fixed;
+    margin-top: 2px;
+    top: 90px;
+    width: 228px;
+  }
+
+  #sidebar.affix-bottom {
+    position: relative;
+  }
+
+}
+
+#sidebar {
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+#sidebar li > a {
+  display: block;
+  margin-left: 5px;
+  padding: 3px 10px;
+}
+
+#sidebar ul.nav {
+  padding-left: 20px;
+}
+
+#sidebar .active > a {
+  margin-left: 0;
+  border: 0 #aeaeff solid;
+  border-left-width: 5px;
+}
+
