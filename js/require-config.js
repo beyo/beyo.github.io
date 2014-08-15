@@ -3,30 +3,30 @@
 
   require.config({
     enforceDefine: true,
-    baseUrl: 'js',
+    baseUrl: '/js',
     shim: {
       'jquery@2.1.1': {
         exports: '$'
       },
-      'bootstrap@3.1.1': {
-        deps: [ 
-          'jquery'//,
-          //'css!/css/bootstrap.min.css',
-          //'css!/css/font-awesome.min.css'
+      'bootstrap@3.2.0': {
+        deps: [
+          'jquery'
         ],
         exports: '$'        // need to export something.... so... export jQuery!
       }
     },
     paths: {
-      'css@0.1.2': 'lib/css.min',
+      'css@0.1.5': 'lib/css.min',
       'jquery@2.1.1': 'lib/jquery.min',
-      'bootstrap@3.1.1': 'lib/bootstrap.min'
+      'bootstrap@3.2.0': 'lib/bootstrap.min',
+      'prettify@1.0.1': 'lib/prettify.min'
     },
     map: {
       '*': {
-        'css': 'css@0.1.2',
+        'css': 'css@0.1.5',
         'jquery': 'jquery@2.1.1',
-        'bootstrap': 'bootstrap@3.1.1'
+        'bootstrap': 'bootstrap@3.2.0',
+        'prettify': 'prettify@1.0.1'
       }
     }
   });

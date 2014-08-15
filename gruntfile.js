@@ -3,6 +3,10 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    clean: {
+      js: ['js/lib/**/*'],
+      css: ['css/**/*', '!css/site.css']
+    },
     copy: {
       RequireJS: {
         expand: true,
@@ -59,6 +63,28 @@ module.exports = function(grunt) {
             dest: 'fonts/'
           }
         ]
+      },
+      Prettify: {
+        files: [
+          {
+            expand: true,
+            cwd: 'bower_components/google-code-prettify/bin',
+            src: 'prettify.min.js',
+            dest: 'js/lib/'
+          },
+          {
+            expand: true,
+            cwd: 'bower_components/google-code-prettify/bin',
+            src: 'prettify.min.css',
+            dest: 'css/'
+          },
+          {
+            expand: true,
+            cwd: 'bower_components/google-code-prettify/styles',
+            src: 'doxy.css',
+            dest: 'css/prettify/'
+          }
+        ]
       }
     }
   });
@@ -66,7 +92,7 @@ module.exports = function(grunt) {
   // Load plugins
   //grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  //grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
   // Default task(s).
   grunt.registerTask('default', [
@@ -74,7 +100,8 @@ module.exports = function(grunt) {
     'copy:RequireCSS',
     'copy:jQuery',
     'copy:Bootstrap',
-    'copy:FontAwesome'
+    'copy:FontAwesome',
+    'copy:Prettify'
   ]);
 
 };
