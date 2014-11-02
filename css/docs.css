@@ -67,6 +67,15 @@
   color: #5bc0de;
 }
 
+/* Success */
+
+.beyo-callout-success {
+  border-left-color: #0bc00f;
+}
+
+.beyo-callout-success h4 {
+  color: #0bc00f;
+}
 
 /* SECTION */
 

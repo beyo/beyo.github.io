@@ -45,14 +45,6 @@
         <div class="beyo-docs-section">
           <h2 id="getting-started">Getting Started</h2>
 
-          <div class="beyo-callout beyo-callout-danger">
-            <h4>In Development</h4>
-            <p>
-              This tutorial targets the <a href="https://github.com/beyo/beyo/tree/dev">dev</a> branch of
-              the framework. This notice will be removed once the refactory and testing phase is done.
-            </p>
-          </div>
-
           <p>
             This tutorial is intended to give an introduction to using Beyo by creating a simple
             application using the Hierarchical-Model-View-Controller paradigm.
@@ -64,7 +56,8 @@
           </p>
           <p>
             By the end you will have a working Beyo application and you can then poke around the
-            code to find out more about how it all works and fits together.
+            code to find out more about how it all works and fits together, and how dependencies
+            can be added to season and extend the project.
           </p>
         </div>
 
@@ -79,7 +72,7 @@
             <p>
               It is assumed that you already have installed and configured <a href="http://nodejs.org/" target="_blank">Node.js</a>.
               Beyo requires and use extensively the most recent ES6 generators and harmony features.
-              Therefore, this tutorial was written and tested using version <code>0.11.3</code>.
+              Therefore, this tutorial was written and tested using version <code>0.11.13</code>.
             </p>
           </div>
 
@@ -97,13 +90,15 @@
           </div>
 
           <p>
-            Beyo is built on top of <a href="http://koajs.com/">Koa</a>, which sits on
-            top of <a href="https://github.com/visionmedia/co">co</a>. If these modules
-            have been tested and working, then everything should be just fine. In short
-            the following command should execute just fine.
+            Beyo is yieldable enabled, sitting on top of <a href="https://github.com/visionmedia/co">co</a>.
+            If these modules have been tested and working, then everything should be just fine. In short
+            the following command should not generate any error.
           </p>
 
           <pre><code>$ node --harmony -e 'function*f(){}'</code></pre>
+
+          <p>If you get an "Unexpected token *", then check that you are using the most recent
+          version of Node.js.</p>
 
           <!-- /REQUIREMENTS -->
 
@@ -121,7 +116,7 @@
           </p>
 
           <pre><code>$ beyo --version</code>
-<!--   --><code class="nocode">beyo@0.2.1</code></pre>
+<!--   --><code class="nocode">beyo@1.0.0-RC</code></pre>
 
           <!-- /GETTING BEYO -->
 
@@ -131,6 +126,39 @@
         <!-- SKELETON APP -->
         <div class="beyo-docs-section">
           <h2 id="skeleton-application">Skeleton Application</h2>
+
+          <p>
+            The first thing to do is to create your <strong>application root directory</strong>.
+            This directory will serve as the base for everything related to your
+            application and nothing should be placed outside this path, less it
+            be for the occasional node modules, if necessary.
+          </p>
+
+          <div class="beyo-callout beyo-callout-success">
+            <h4>Gloassary</h4>
+            <p>
+              For now on, the <strong>application root directory</strong> will be referred as <code>rootPath</code>.
+            </p>
+          </div>
+
+          <pre><code class="nocode">$ mkdir nodepad
+<!--   -->$ cd nodepad</code></pre>
+
+          <div class="beyo-callout beyo-callout-info">
+            <h4>Optional Initialization</h4>
+            <p>
+              It is good practice to create a <code>package.josn</code> file, or initialize a git
+              repository at this point. While those are out of the scope of this tutorial, it is
+              nonetheless strongly encouraged to consider doing so.
+            </p>
+            <p>
+              For more information about <code>package.json</code>, refer to <a href="https://www.npmjs.org/doc/cli/npm-init.html">npm init <i class="fa fa-external-link"></i></a>.
+            </p>
+            <p>
+              For more information about git, refer to <a href="http://www.git-scm.com/docs/git-init">git init <i class="fa fa-external-link"></i></a>.
+            </p>
+          </div>
+
 
           <!-- APP BOOTSTRAP -->
           <h3 id="application-bootstrap">Application Bootstrap</h3>
