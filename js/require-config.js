@@ -16,7 +16,7 @@
       },
       'prettify@1.0.1': {
         deps: [
-          'css!/css/prettify/doxy.css'
+        'css!/css/prettify/desert.css'
         ],
         exports: 'prettyPrint'
       }

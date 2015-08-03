@@ -87,6 +87,71 @@
   padding-top: 10px;
 }
 
+
+pre {
+  padding: 8px;
+}
+
+pre code {
+  overflow: auto;
+}
+
+pre[data-file].source {
+  position: relative;
+  overflow: visible;
+  margin-top: 27px;
+}
+
+pre[data-file].source:before {
+  position: absolute;
+  content: attr(data-file);
+  display: inline-block;
+  color: rgb(200, 200, 200);
+  background-color: transparent;
+
+  border-top: 32px solid rgb(80, 80, 110);
+  border-right: 16px solid red;
+
+  padding: 2px 16px 1px 8px;
+
+  font-style: italic;
+
+  border-top: none;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid rgb(30, 30, 90);
+
+  height: 0 !important;
+  line-height: 20px;
+
+  top: -20px;
+  left: 0px;
+}
+
+pre[data-file].source code:before {
+  content: '\A';
+}
+
 code.nocode {
-  color: white;
+  color: white !important;
+}
+
+
+
+
+.beyo-callout p.note {
+  position: relative;
+  font-size: 80%;
+  padding-top: 16px;
+}
+
+.beyo-callout p.note:before {
+  content: '';
+  position: absolute;
+
+  background-color: rgb(220, 220, 220);
+
+  width: 20%;
+  height: 2px;
+
+  margin-top: -8px;
 }

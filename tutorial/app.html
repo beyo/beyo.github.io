@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Introduction - Tutorial - Beyo Application Framework</title>
+
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/font-awesome.min.css" rel="stylesheet">
+  <link href="../css/nav.css" rel="stylesheet">
+  <link href="../css/docs.css" rel="stylesheet">
+
+  <script type="text/javascript" src="../js/lib/require.js"></script>
+  <script type="text/javascript" src="../js/require-config.js"></script>
+  <script type="text/javascript" src="../js/nav.js"></script>
+  <script type="text/javascript" src="../js/docs.js"></script>
+
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="row clearfix">
+      <div class="col-md-12 column">
+        <nav class="navbar navbar-inverse" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+            <a id="brand" class="navbar-brand sharper-glow" href="/">Beyo</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="row clearfix">
+      <div class="col-md-9 column beyo-docs">
+        <h1 class="page-header">New Application Tutorial</h1>
+
+        <!-- GETTING STARTED -->
+        <div class="beyo-docs-section">
+          <h2 id="getting-started">Getting Started</h2>
+
+          <p>
+            This tutorial is intended to give an introduction to using Beyo by creating a simple
+            application using the Hierarchical-Model-View-Controller paradigm.
+          </p>
+          <p>
+            This tutorial will not focus on persistence, templating, or authentication. But will
+            go in depth into the core of Beyo and the best practices to start a small to large
+            scale application.
+          </p>
+          <p>
+            By the end you will have a working Beyo application and you can then poke around the
+            code to find out more about how it all works and fits together, and how dependencies
+            can be added to season and extend the project.
+          </p>
+        </div>
+
+        <!-- /GETTING STARTED -->
+
+        <!-- INSTALLATION -->
+        <div class="beyo-docs-section">
+          <h2 id="installation">Installation</h2>
+
+          <div class="beyo-callout beyo-callout-danger">
+            <h4>Some assumptions</h4>
+            <p>
+              It is assumed that you already have installed and configured <a href="http://nodejs.org/" target="_blank">Node.js</a>.
+              Beyo requires and use extensively the most recent ES6 generators and harmony features.
+              Therefore, this tutorial was written and tested using version <code>0.12</code>.
+            </p>
+          </div>
+
+
+          <!-- REQUIREMENTS -->
+          <h3 id="requirements">Requirements</h3>
+
+          <div class="beyo-callout beyo-callout-warning">
+            <h4>Development Tools</h4>
+            <p>
+              In this tutorial, we will make use of the terminal under a POSIX sytem. We will not
+              enforce any IDE or text editor. For this reason, those using <strong>Win32</strong>
+              operating systems, for example, may have to adapt this to their environments.
+            </p>
+          </div>
+
+          <p>
+            Make sure that you have a compatible Node.js environment. Beyo relies on <code>Promise</code>
+            to delegate asynchronous events and control flow. Ideally, you should have version 0.12+
+            installed, or io.js. You may test this by executing this command in the console :
+          </p>
+
+          <pre><code>$ node --version</code></pre>
+
+          <p>You should see <code>0.12.7</code>, or any greater value.</p>
+
+          <div class="beyo-callout beyo-callout-info">
+            <h4>nvm</h4>
+            <p>
+              It is suggested to use <a href="https://github.com/creationix/nvm" target="_blank"><code>nvm</code> <i class="fa fa-external-link"></i></a>
+              to manage your Node.js versions.
+            </p>
+          </div>
+
+          <!-- /REQUIREMENTS -->
+
+          <!-- GETTING BEYO -->
+          <h3 id="getting-beyo">Getting Beyo Framework</h3>
+
+          <p>
+            Beyo should to be installed globally :
+          </p>
+
+          <pre><code>$ npm install -g beyo</code></pre>
+
+          <p>
+            The installation may be validated by issuing the following command :
+          </p>
+
+          <pre><code>$ beyo --version</code>
+<!--   --><code class="nocode">beyo@2.0.0-alpha</code></pre>
+
+          <!-- /GETTING BEYO -->
+
+        </div>
+        <!-- /INSTALLATION -->
+
+        <!-- SKELETON APP -->
+        <div class="beyo-docs-section">
+          <h2 id="skeleton-application">Skeleton Application</h2>
+
+          <p>
+            The first thing to do is to create your <strong>application root directory</strong>.
+            This directory will serve as the base for everything related to your
+            application and nothing should be placed outside this path, less it
+            be for the occasional node modules, if necessary.
+          </p>
+
+          <div class="beyo-callout beyo-callout-success">
+            <h4>Gloassary</h4>
+            <p>
+              For now on, the <strong>application root directory</strong> will be referred as the project's "root"
+              and have all files relative to the current directory <code>.</code>, which will be the value of the
+              variable <code>rootPath</code> in the code examples.
+            </p>
+          </div>
+
+          <p>
+            In this tutorial, we will create a simple server-side note pad, called nodepad! This application will
+            allow editing, saving, uploading and downloading text files, through the browser, on the server
+            (ex: localhost).
+          </p>
+
+          <p>
+            First, create the project root, or base, directory. For example :
+          </p>
+
+          <pre><code class="nocode">$ mkdir awesome-app
+<!--   -->$ cd awesome-app</code></pre>
+
+          <div class="beyo-callout beyo-callout-info">
+            <h4>Optional Initialization</h4>
+            <p>
+              It is good practice to create a <code>package.josn</code> file, or initialize a git
+              repository at this point. While those are out of the scope of this tutorial, it is
+              nonetheless strongly encouraged to consider doing so.
+            </p>
+            <p>
+              For more information about <code>package.json</code>, refer to <a href="https://www.npmjs.org/doc/cli/npm-init.html" target="_blank">npm init <i class="fa fa-external-link"></i></a>.
+            </p>
+            <p>
+              For more information about git, refer to <a href="http://www.git-scm.com/docs/git-init" target="_blank">git init <i class="fa fa-external-link"></i></a>.
+            </p>
+          </div>
+
+
+          <!-- APP BOOTSTRAP -->
+          <h3 id="application-bootstrap">Application Bootstrap</h3>
+
+          <p>
+            The very first thing that gets loaded by Beyo is the application's bootstrap module. This
+            module should export only one function returning the local <code>module</code> object or a
+            <code>Promise</code> resolving with the <code>module</code> object.
+          </p>
+
+          <p>
+            The main goal of this function is to provide the module instance that will be used to load
+            resources relative to the application root directory, through <code>module.require</code>.
+          </p>
+
+          <p>
+            At the project root, create a file named <code>index.js</code> and write the following
+            three (3) lines in.
+          </p>
+
+          <pre class="source" data-file="./index.js"><code>module.exports = function appBootstrap(beyo) {
+<!--   -->  return module;
+<!--   -->};</code></pre>
+
+          <p>
+            If anything else should be put in this file, it should only be about validating the initial
+            application's requirement, and should not modify the <code>Beyo</code> instance at this
+            point. For example, checking dependencies and and system requirements.
+          </p>
+
+          <div class="beyo-callout beyo-callout-info">
+            <h4>Beyo Public API - Summary</h4>
+            <p>
+              The application bootstrap module defines <code>beyo.require(m)</code>, a function requiring
+              modules as if they were required by the application bootstrap module itself; from the
+              application's root directory.
+            </p>
+          </div>
+
+          <div class="beyo-callout beyo-callout-danger">
+            <h4>Important!</h4>
+            <p>
+              At this point, the <code>beyo</code> instance only has a few core properties defined! And,
+              while it is perfectly fine to extend this instance with custom properties, avoid using
+              property names that are being defined during the initialization process! Some external
+              modules, or plugins may require these properties to behave a certain way and, by overriding
+              them in the application bootstrap module, you could break something, or worse. Keep this
+              module read-only.
+            </p>
+          </div>
+
+          <!-- /APP BOOTSTRAP -->
+
+          <!-- GLOBAL CONFIG -->
+          <h3 id="global-configuration">Global Configuration</h3>
+
+          <p>
+            Once the application's bootstrap module has been executed, and <code>beyo.require(m)</code> has
+            been defined, the framework will recursively load the configuration files located inside the folder
+            <code>./app/conf</code>.
+          </p>
+
+          <p>
+            Each configuration file may be a <code>.json</code> or <code>.js</code> object (or any file
+            that can be loaded and parsed by node.js' <code>require</code> function). For this tutorial,
+            create a file to write the application's server configurations.
+          </p>
+
+          <pre><code class="nocode">$ mkdir -p app/conf
+<!--   -->$ touch app/conf/server.dev.json</code></pre>
+
+          <pre class="source" data-file="./app/conf/server.dev.json"><code>{
+<!--   -->  "server": {
+<!--   -->    "listen": {
+<!--   -->      "port": 1337
+<!--   -->    }
+<!--   -->  }
+<!--   -->}</code></pre>
+
+          <div class="beyo-callout beyo-callout-info">
+            <h4>Environment</h4>
+            <p>
+              With a single configuration file, if the environment should be specified to any value other
+              than "dev", or "development", etc., the <code>server</code> configuration would <strong>not</strong>
+              be available! There would need to have another file, name <code>server.prod.json</code> for
+              a "prod", or "production", environemnt, etc. Or, the file should be renamed <code>server.dev.prod.json</code>
+              to provide configuration for environment "dev" <em>or</em> "prod", or it should be renamed to
+              <code>server.json</code> and provide an agnostic environment configuration file.
+            </p>
+          </div>
+
+          <p>
+            Without any configuration, the logger will use the default behaviour. While it may be fine
+            in some instance, it is a good habit to have things well defined at all times! Create another,
+            environment agnostic, configuration for our logger.
+          </p>
+
+          <pre><code class="nocode">$ touch app/conf/logger.json</code></pre>
+
+          <pre class="source" data-file="./app/conf/logger.json"><code>{
+<!--   -->  "logger": {
+<!--   -->    "levels": {
+<!--   -->      "critical": 6,
+<!--   -->      "error": 5,
+<!--   -->      "warning": 4,
+<!--   -->      "alert": 3,
+<!--   -->      "notice": 2,
+<!--   -->      "info": 1,
+<!--   -->      "debug": 0
+<!--   -->    },
+<!--   -->    "colors": {
+<!--   -->      "critical": "red",
+<!--   -->      "error": "bold red",
+<!--   -->      "warning": "yellow",
+<!--   -->      "alert": "bold yellow",
+<!--   -->      "notice": "bold green",
+<!--   -->      "info": "green",
+<!--   -->      "debug": "blue"
+<!--   -->    },
+<!--   -->    "transports": {
+<!--   -->      "console": {
+<!--   -->        "colorize": true,
+<!--   -->        "handleExceptions": true,
+<!--   -->        "json": false,
+<!--   -->        "prettyPrint": true,
+<!--   -->        "timestamp": false
+<!--   -->      }
+<!--   -->    },
+<!--   -->    "exitOnError": false
+<!--   -->  }
+<!--   -->}</code></pre>
+
+          <pre><code class="nocode">$ touch app/conf/logger.dev.json</code></pre>
+
+          <pre class="source" data-file="./app/conf/logger.dev.json"><code>{
+<!--   -->  "logger": {
+<!--   -->    "level": "debug",
+<!--   -->    "transports": {
+<!--   -->      "console": {
+<!--   -->        "level": "debug"
+<!--   -->      }
+<!--   -->    }
+<!--   -->  }
+<!--   -->}</code></pre>
+
+          <div class="beyo-callout beyo-callout-info">
+            <h4>Configuration merging</h4>
+            <p>
+              It should be noted that the two last configuration files, <code>logger.json</code>
+              and <code>logger.dev.json</code> will be merge recursively. The order the files are
+              merged is determined by their names, where configuration files are sorted alphabetically.
+            </p>
+          </div>
+
+          <div class="beyo-callout beyo-callout-info">
+            <h4>Logger Config</h4>
+            <p>
+              The initialized logger is an instance of <a href="https://github.com/winstonjs/winston" target="_blank">winston</a>;
+              all configurations defined under the Beyo config key <code>"logger"</code> will be passed as is to the new instance.
+              The only exception being the <code>transports</code>, <code>levels</code> and <colors>colors</colors>, which
+              will be automatically wrapped to allow using JSON and not depend on requiring any library at the config level.
+              More specifically :
+            </p>
+            <pre><code>{
+<!--     -->  "logger": {
+<!--     -->    "transports": {
+<!--     -->      "console": {},
+<!--     -->      "file": {
+<!--     -->        "filename": "somefile.log"
+<!--     -->      }
+<!--     -->    },
+<!--     -->    "levels": "syslog",
+<!--     -->    "colors": "npm"
+<!--     -->  }
+<!--     -->}</code></pre>
+            <p>
+              Will initialize the logger like this :
+            </p>
+            <pre><code>var logger = new (winston.Logger)({
+<!--     -->  transports: [
+<!--     -->    new (winston.transports.Console)(),
+<!--     -->    new (winston.transports.File)({ filename: 'somefile.log' })
+<!--     -->  ],
+<!--     -->  levels: winston.config.syslog.levels,
+<!--     -->  colors: winston.config.npm.colors
+<!--     -->});</code></pre>
+            <p>
+              If <code>levels</code> or <code>colors</code> are not a string, they will be passed as is.
+            </p>
+          </div>
+
+          <div class="beyo-callout beyo-callout-warning">
+            <h4>Configuration key conflicts</h4>
+            <p>
+              When loading configurations, if a key / value pair was already defined, a <code>configLoadConflict</code><sup>1</sup>
+              event will be emitted, so it is still possible to manually resolve such configuration conflicts. A conflict
+              is detected if both key / value pair exists, and either is <em>not</em> an object. In case both keys are
+              objects, they will be merged recursively, and if any key / value pair was already defined, a
+              <code>configLoadConflict</code> event will be emitted...
+            </p>
+
+            <p class="note">
+              <sup>1.</sup> <code>beyo.on('configLoadConflict', function (config, conflictInfo) { ... });</code>
+            </p>
+          </div>
+
+          <!-- /GLOBAL CONFIG -->
+
+          <!-- APPLICATION INITIALISATION -->
+          <h3 id="app-init">Application Initialisation</h3>
+
+          <p>
+            Since Beyo framework aims to be lightweight and flexible, it does not impose a third party
+            module to handle HTTP requests and such; it is the project's responsibility to provide it's
+            own preferred application instance. The reason for this is to allow projects to require their
+            own technologies from their own specifications.
+          </p>
+
+          <p>
+            Let's demonstrate how we can simply use the built-in <code>http</code> module with Beyo :
+          </p>
+
+          <pre class="source" data-file="./app/index.js"><code>var http = require('http');
+<!--   -->
+<!--   -->module.exports = function appInitialize(beyo) {
+<!--   -->  var server = http.createServer(requestHandler);
+<!--   -->
+<!--   -->  function requestHandler(request, response) {
+<!--   -->    response.writeHead(200, {"Content-Type": "text/plain"});
+<!--   -->    response.end("Hello World!\n");
+<!--   -->
+<!--   -->    beyo.logger.debug('Request', request.method, ':', request.url);
+<!--   -->  }
+<!--   -->
+<!--   -->  // when Beyo is done initializing and loading stuff, fire up the HTTP server!
+<!--   -->  beyo.on('ready', function () {
+<!--   -->    var port = beyo.config('server.listen.port');
+<!--   -->
+<!--   -->    beyo.logger.info('Server started; listening on port', port);
+<!--   -->    server.listen(port);
+<!--   -->  });
+<!--   -->
+<!--   -->  return server;
+<!--   -->}</code></pre>
+
+          <div class="beyo-callout beyo-callout-info">
+            <h4>The <code>ready</code> Event</h4>
+            <p>
+              This event is fired only when everything has been loaded and executed, and no
+              errors were thrown. Only when all <code>ready</code> handlers have returned, and
+              none have thrown an uncaught exeception, that <code>beyo.isReady === true</code>.
+            </p>
+          </div>
+
+          <p>
+            At this point, we already have something that should load and respond to HTTP requests. We
+            can bootstrap de application and test it.
+          </p>
+
+          <pre><code>$ beyo start -v -s</code>
+<!--   --><code class="nocode">[Config] Loading global server.dev.json
+<!--   -->[Config] Loading global logger.json
+<!--   -->[Config] Loading global logger.dev.json
+<!--   -->[Logger] Loading logger
+<!--   -->[Logger] Loaded levels : debug, info, notice, alert, warning, error, critical
+<!--   -->[Logger] Loaded transport : console @ debug
+<!--   -->info: Server started; listening on port 1337</code></pre>
+
+          <div class="beyo-callout beyo-callout-info">
+            <h4>Beyo CLI arguments</h4>
+            <p>
+              For more information about command-line arguments, type <code>beyo --help</code>.
+            </p>
+          </div>
+
+          <p>
+            Going to <code>http://localhost:1337</code> with any browser will add some debug logs
+          </p>
+
+          <pre><code class="nocode">debug: Request GET : /
+<!--   -->debug: Request GET : /favicon.ico</code></pre>
+
+          <p>
+            <div class="row">
+              <div class="col-xs-6">
+                And echo our "Hello World!" string :
+              </div>
+              <div class="col-xs-6">
+                <img src="img/hello_http.png" alt="Hello HTTP" class="img-thumbnail">
+              </div>
+            </div>
+          </p>
+
+          <!-- /APPLICATION INITIALISATION -->
+
+
+        </div>
+        <!-- /SKELETON APP -->
+
+        <!-- NEW MODULE -->
+        <div class="beyo-docs-section">
+          <h2 id="new-module">Create a New Module</h2>
+
+
+          <!-- MODULE BOOTSTRAP -->
+          <h3 id="new-module-bootstrap">Module Bootstrap</h3>
+
+
+
+          <!-- /MODULE BOOTSTRAP -->
+
+          <!-- MODULE CONFIGURATION -->
+          <h3 id="new-module-configuration">Module Configuration</h3>
+
+
+
+
+          <!-- /MODULE CONFIGURATION -->
+
+          <!-- CONTROLLER -->
+          <h3 id="new-module-controller">Controller</h3>
+
+
+
+          <!-- /CONTROLLER -->
+
+        </div>
+        <!-- /NEW MODULE -->
+
+
+        <div class="beyo-docs-section">
+
+          <!-- WHAT'S NEXT -->
+          <h2 id="whats-next">What's Next?</h2>
+
+
+          <!-- /WHAT'S NEXT -->
+
+        </div>
+
+      </div>
+      <div class="col-md-3 column">
+        <div id="rightCol" class="beyo-docs-sidebar hidden-print hidden-xs hidden-sm" role="complementary">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center">
+          <hr>
+          <p>Copyright &copy; Mind2Soft.com 2015</p>
+          <p>This site is also on <a href="https://github.com/beyo/beyo.github.io">github</a>!</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- /Footer -->
+
+  <!-- JavaScript -->
+  <script type="text/javascript" src="../js/analytics.js"></script>
+
+</body>
+
+</html>

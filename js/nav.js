@@ -5,8 +5,40 @@ require([
 
   $(function() {
 
+
+    function buildMenu() {
+      var menu = $('<ul>', {
+        'id': 'sidebar',
+        'class': 'nav nav-stacked'
+      });
+      var menuStack = [menu];
+
+      $('h2[id],h3[id]', '.beyo-docs').each(function () {
+        var level = this.tagName.substr(1) - 1;
+
+        if (level > menuStack.length) {
+          menuStack.push( $('<ul>', {
+            'class': 'nav'
+          }).appendTo( menuStack[menuStack.length - 1].find('li:last') ) );
+        } else if (level < menuStack.length) {
+          menuStack.pop();
+        }
+
+        menuStack[menuStack.length - 1].append($('<li>', {
+          'append': $('<a>', {
+            'attr': {
+              'href': '#' + $(this).attr('id')
+            },
+            'text': $(this).text()
+          })
+        }));
+      });
+
+      return menu.appendTo('#rightCol');
+    }
+
     /* activate sidebar */
-    $('#sidebar').affix({
+    buildMenu().affix({
       offset: {
         top: 1,
         bottom: 300
